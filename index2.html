@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script>
+    var width = window.outerWidth;
+    var fs = width * 2 / 10;
+    document.querySelector('html').style.fontSize = fs + 'px'
+  </script>
+  <title>公开</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="publish">
+      <div class="fs-16 bold">财务公开</div>
+      <div class="publish-title">
+        <div class="publish-title__name">标题：</div>
+        <div class="publish-title__input">
+          <u-input v-model="title" class="" placeholder="输入标题名称" type="text" :border="border" maxlength="30"
+            :clearable="clearable" />
+        </div>
+      </div>
+      <div class="publish-textarea">
+        <u-input v-model="content" type="textarea" placeholder="在此输入详细内容…" :border="border" height="184"
+          auto-height="true" :clearable="clearable" maxlength="300" />
+      </div>
+      <div class="publish__desc" style="margin-bottom: 0;">选择标签</div>
+      <tag-radio :list="tagOptions" :current="tagCurrent" small="true" @tagClick="onTagChange" />
+      <div class="publish__desc">上传图片</div>
+      <u-line color="#BEBEBE" margin="40rpx 0 0 0" />
+      <div class="publish__desc">消息推送</div>
+      <div class="publish-switch">
+        <div class="publish-switch__name">同步至首页</div>
+        <div class="">
+        </div>
+      </div>
+      <div class="publish-switch">
+        <div class="publish-switch__name">置顶</div>
+        <div class="">
+        </div>
+      </div>
+    </div>
+    <div class="publish-btn">
+      <button type="primary" shape="circle" onclick="submit()">发布</button>
+    </div>
+  </div>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+      function submit() {
+        var params = {
+          title: 'test42300001',
+          content: 'test0000001',
+          imgs: [],
+          notifySms: 0,
+          notifyWx: 0,
+          onTop: 0,
+          syncIdx: 0,
+          type: 31,
+          tagId: 12
+        }
+        console.log(params)
+        $.ajax({
+          type: "post",
+          headers: {
+            'Authorization': "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJ3eC1jYWRyZSIsImlhdCI6MTYxOTEwMzk4MiwianRpIjoiN2ViY2Y0MjYtNGI1Yi00NWQ1LThiYzQtMTBhZmZmZDBjODBiIiwic3ViIjoiMTg2OTIyMDkxNTAiLCJ0aGlzX3VpZCI6MzI2NSwidGhpc19yb2xlIjoiY2FkcmUiLCJleHAiOjE2MTkxOTAzODJ9.FdFw1MTMJqva0jwGGXHORrDRZOWW9vhKQTLH7t0U4YjjNZgT-RNJwKdaYiPgm2v1Z26OHwksqyKq60ql3LD19g",
+            'Content-type': "application/json"
+          },
+          url: "https://testing2.kpdv.cc/cad-api/moments",
+          data: JSON.stringify(params),
+          dataType: "json",
+          success: function (data) {
+            console.log('------', data)
+          }
+        });
+      }
+  </script>
+</body>
+
+</html>
