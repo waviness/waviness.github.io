@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script>
+    var width = window.outerWidth;
+    var fs = width * 2 / 10;
+    document.querySelector('html').style.fontSize = fs + 'px'
+  </script>
   <title>公开</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="./css/message.css">
 </head>
+
 <body>
-  <div class="fs-16 bold">财务公开</div>
-  <div class="publish-title">
-    <div class="publish-title__name">标题：</div>
-    <div class="publish-title__input">
-      <u-input v-model="title" class="" placeholder="输入标题名称" type="text" :border="border" maxlength="30"
-        :clearable="clearable" />
+  <div class="message">
+    <div class="msg-list">
     </div>
   </div>
-  <div class="publish-textarea">
-    <textarea value="content" />
-  </div>
+  <script>
+      (function () {
+        var dataList = [{
+          date: '07-04',
+          list: [{
+            time: '14:09:30',
+            content: '恭喜您，预约成功，请您于预约时间到达4S店进行 施工！'
+          }, {
+            time: '14:09:30',
+            content: '恭喜您，预约成功，请您于预约时间到达4S店进行 施工！'
+          }, {
+            time: '14:09:30',
+            content: '恭喜您，预约成功，请您于预约时间到达4S店进行 施工！'
+          }]
+        }, {
+          date: '07-03',
+          list: [{
+            time: '14:09:30',
+            content: '恭喜您，预约成功，请您于预约时间到达4S店进行 施工！'
+          }, {
+            time: '14:09:30',
+            content: '恭喜您，预约成功，请您于预约时间到达4S店进行 施工！'
+          }]
+        }]
+        var _html = ''
+        dataList.forEach(function (item, index) {
+          var _html2 = ''
+          item.list.forEach(function (item2, index2) {
+            _html2 += '<div class="item">' +
+              '<div class="header">' +
+              '<span class="title">系统消息</span>' +
+              '<span class="time">' + item2.time + '</span>' +
+              '</div>' +
+              '<div class="content">' + item2.content + '</div>' +
+              '</div>'
+          })
+          _html += '<div class="msg-item">' +
+            '<div class="date">' + item.date + '</div>' +
+            _html2 +
+            '</div>'
+        })
+        _html += '<div class="bottom">我也是有底线的</div>'
+        document.querySelector('.msg-list').innerHTML = _html
+      })()
+  </script>
 </body>
+
 </html>
