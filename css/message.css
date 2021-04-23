@@ -1,0 +1,58 @@
+.msg-list {
+  padding-top: 15px;
+  padding-bottom: 50px;
+}
+
+.msg-item {
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.date {
+  color: #afafaf;
+  font-size: 12px;
+  text-align: center;
+}
+
+.item {
+  width: 310px;
+  padding: 20px;
+  background: #fff;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.header {
+  color: #1c69d4;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.title {
+  font-size: 15px;
+  margin-right: 6px;
+}
+
+.time {
+  font-size: 12px;
+}
+
+.content {
+  font-size: 14px;
+  color: #494949;
+  text-align: left;
+  line-height: 24px;
+  margin-top: 10px;
+}
+
+.bottom {
+  font-size: 12px;
+  color: #afafaf;
+  text-align: center;
+}
+
+.message {
+  min-height: 100%;
+  background: #f5f5f5;
+}
